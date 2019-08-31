@@ -1,0 +1,26 @@
+<div class="body">
+    <mdc-card class="transaction" [mdcElevation]="2" *ngIf="balance !== undefined">
+        &nbsp;
+          <form [formGroup]="transactionForm">
+            <h1>Add a candidate</h1>
+            <mdc-form-field fluid>
+                <mdc-text-field type="text" label="Candidate Full Name" outlined class="demo-text-field--outline"></mdc-text-field>
+            </mdc-form-field>
+          </form>
+        &nbsp;
+        <div class="button-container">
+          <button mdc-button secondary unelevated  class="big-round-shape-button" [disabled]="!transactionForm.valid"(click)="transferEth($event)"><mdc-icon *ngIf="!transactionForm.valid">lock</mdc-icon><mdc-icon *ngIf="transactionForm.valid">input</mdc-icon>&nbsp;Submit</button>
+          &nbsp;
+          <button mdc-button (click)="reset()" >Reset</button>
+          &nbsp;
+        </div>
+        &nbsp;
+    </mdc-card>
+  
+    <mdc-card  [mdcElevation]="2" *ngIf="balance == undefined">
+      <p>  We'are unable to detected metamask 🦊 or you wallet provider💳 ,Start your metamask or check your connection 😥
+      </p>
+    </mdc-card>
+    </div>
+  
+  

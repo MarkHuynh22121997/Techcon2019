@@ -1,0 +1,48 @@
+<mat-grid-list cols="4" rowHeight="100px" *ngIf="balance != undefined">
+  <mat-grid-tile *ngFor="let candidate of candidates" [colspan]="1" [rowspan]="6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title><b>{{ candidate.name }}</b></mat-card-title>
+        <mat-card-subtitle>{{ candidate.vote }} votes</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{ candidate.description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button><b>VOTE</b></button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card" *ngIf="balance == undefined">
+  <mat-card-header>
+    <mat-card-title><b>Error</b></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      We'are unable to detected metamask 🦊 or you wallet provider💳 ,Start your metamask or check your connection 😥
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><b>Add Candidate</b></mat-card-title>
+    <mat-card-subtitle>Only available for SC owner</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mdc-form-field fluid>
+      <mdc-text-field type="text" label="Candidate Full Name" outlined class="demo-text-field--outline">
+      </mdc-text-field>
+    </mdc-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button><b>ADD</b></button>
+    <button mat-button><b>RESET</b></button>
+  </mat-card-actions>
+</mat-card>
